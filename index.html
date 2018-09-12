@@ -12,6 +12,8 @@
     <h1>AngularJS Intro</h1>
 
     <div ng-controller="WelcomeController as vm">
+        <input ng-model="vm.message" type="text">
+        <button ng-click="vm.greet()">Click Me</button>
         {{vm.message}}
     </div>
 
