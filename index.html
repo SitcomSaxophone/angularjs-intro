@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="angular.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
     <script src="client.js"></script>
     <title>AngularJS Intro</title>
 </head>
+
 <body ng-app="MyApp">
     <h1>AngularJS Intro</h1>
 
     <div ng-controller="WelcomeController as vm">
-        <input ng-model="vm.message" type="text">
+        <input placeholder="Insert Text Here" ng-model="vm.message" type="text">
         <button ng-click="vm.greet()">Click Me</button>
         {{vm.message}}
+
+        <ul id="outputList">
+            <li ng-repeat="thing in vm.pointyThings">
+                {{thing.name}} have a sharpness of {{thing.sharpness}}
+                <!-- Are {{thing.name}} poisonous?? {{thing.isPoisonous}}. -->
+                <span ng-show="thing.isPoisonous">, and they are poisonous.</span>
+                <span ng-hide="thing.isPoisonous">, but no poison.</span>
+            </li>
+        </ul>
     </div>
 
 </body>
+
 </html>
